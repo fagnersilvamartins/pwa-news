@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('pwa-news-sw.js').then(function (registration) {
+                    console.log('Service Worker registration successful with scope: ', registration.scope);
+                }).catch(function (err) {
+                    console.error(err);
+                });
+            });
+        }
+    </script>
 </head>
 <body>
 <div class="container">
@@ -47,7 +59,8 @@
                 <h4 id="top-news-title" class="font-italic"></h4>
                 <p id="top-news-description" class="lead my-3"></p>
                 <p class="lead mb-0">
-                    <a href="#" target="_blank" id="top-news-link" class="text-white font-weight-bold">Continue reading...</a>
+                    <a href="#" target="_blank" id="top-news-link" class="text-white font-weight-bold">Continue
+                        reading...</a>
                 </p>
             </div>
             <div class="col-12 col-sm-6 px-0">
